@@ -641,6 +641,11 @@ export class HtmlBuilder extends DefaultBuilder {
         return false;
     }
 
+    block_pagebreak(process: BuilderProcess, _node: BlockElementSyntaxTree) {
+        process.outRaw("<p>[改ページ]</p>\n");
+        return false;
+    }
+
     block_source_pre(process: BuilderProcess, node: BlockElementSyntaxTree) {
         process.outRaw("<div class=\"source-code\">\n");
         process.outRaw("<p class=\"caption\">").out(nodeContentToString(process, node.args[0])).outRaw("</p>\n");

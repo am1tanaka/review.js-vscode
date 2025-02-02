@@ -473,6 +473,11 @@ export class TextBuilder extends DefaultBuilder {
         return false;
     }
 
+    block_pagebreak(process: BuilderProcess, _node: BlockElementSyntaxTree) {
+        process.out("\n[改ページ]\n");
+        return false;
+    }
+
     block_source_pre(process: BuilderProcess, node: BlockElementSyntaxTree) {
         process.out("◆→開始:ソースコードリスト←◆\n");
         process.out("■").out(nodeContentToString(process, node.args[0])).out("\n");

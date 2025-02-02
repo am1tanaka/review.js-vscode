@@ -23,6 +23,7 @@ export let ja: any = {
         "block_lead": "リード分を示します。\n//lead{\n世界を変えたくはないか？\n//}\nという形式で書きます。lead記法中では、全てのインライン構文やブロック構文が利用できます。",
         "block_noindent": "パラグラフを切らずに次の要素を続けることを示します。\n//noindent\nという形式で書きます。",
         "block_blankline": "1行ぶんの空行を明示して入れます。\n//blankline\nという形式で書きます。",
+        "block_pagebreak": "改ページします。\n//pagebreak\nという形式で書きます。正式コマンドではありません。PDFやepubのみ対応です。",
         "block_source": "ソースコードの引用を示します。\n//source[hello.js]{\nconsole.log(\"Hello world!\");\n//}\nという形式で書きます。",
         "block_cmd": "コマンドラインのキャプチャを示します。\n//cmd{\n$ git clone git@github.com:vvakame/review.js.git\n//}\nという形式で書きます。",
         "block_quote": "引用を示します。\n//quote{\n神は言っている…ここで死ぬ定めではないと…\n//}\nという形式で書きます。",

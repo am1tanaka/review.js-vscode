@@ -576,6 +576,10 @@ export class DefaultAnalyzer implements Analyzer {
         this.blockDecorationSyntax(builder, "blankline", 0);
     }
 
+    block_pagebreak(builder: AcceptableSyntaxBuilder) {
+        this.blockDecorationSyntax(builder, "pagebreak", 0);
+    }
+
     block_source(builder: AcceptableSyntaxBuilder) {
         this.blockDecorationSyntax(builder, "source", 1);
     }

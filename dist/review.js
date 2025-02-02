@@ -7254,6 +7254,10 @@ var init_textBuilder = __esm({
         process2.out("\n");
         return false;
       }
+      block_pagebreak(process2, _node) {
+        process2.out("\n[\u6539\u30DA\u30FC\u30B8]\n");
+        return false;
+      }
       block_source_pre(process2, node) {
         process2.out("\u25C6\u2192\u958B\u59CB:\u30BD\u30FC\u30B9\u30B3\u30FC\u30C9\u30EA\u30B9\u30C8\u2190\u25C6\n");
         process2.out("\u25A0").out(nodeContentToString(process2, node.args[0])).out("\n");
@@ -8110,6 +8114,10 @@ var init_htmlBuilder = __esm({
         process2.outRaw("<p><br /></p>\n");
         return false;
       }
+      block_pagebreak(process2, _node) {
+        process2.outRaw("<p>[\u6539\u30DA\u30FC\u30B8]</p>\n");
+        return false;
+      }
       block_source_pre(process2, node) {
         process2.outRaw('<div class="source-code">\n');
         process2.outRaw('<p class="caption">').out(nodeContentToString(process2, node.args[0])).outRaw("</p>\n");
@@ -8900,6 +8908,9 @@ var init_analyzer = __esm({
       }
       block_blankline(builder) {
         this.blockDecorationSyntax(builder, "blankline", 0);
+      }
+      block_pagebreak(builder) {
+        this.blockDecorationSyntax(builder, "pagebreak", 0);
       }
       block_source(builder) {
         this.blockDecorationSyntax(builder, "source", 1);
@@ -11235,6 +11246,7 @@ var init_ja = __esm({
         "block_lead": "\u30EA\u30FC\u30C9\u5206\u3092\u793A\u3057\u307E\u3059\u3002\n//lead{\n\u4E16\u754C\u3092\u5909\u3048\u305F\u304F\u306F\u306A\u3044\u304B\uFF1F\n//}\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002lead\u8A18\u6CD5\u4E2D\u3067\u306F\u3001\u5168\u3066\u306E\u30A4\u30F3\u30E9\u30A4\u30F3\u69CB\u6587\u3084\u30D6\u30ED\u30C3\u30AF\u69CB\u6587\u304C\u5229\u7528\u3067\u304D\u307E\u3059\u3002",
         "block_noindent": "\u30D1\u30E9\u30B0\u30E9\u30D5\u3092\u5207\u3089\u305A\u306B\u6B21\u306E\u8981\u7D20\u3092\u7D9A\u3051\u308B\u3053\u3068\u3092\u793A\u3057\u307E\u3059\u3002\n//noindent\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002",
         "block_blankline": "1\u884C\u3076\u3093\u306E\u7A7A\u884C\u3092\u660E\u793A\u3057\u3066\u5165\u308C\u307E\u3059\u3002\n//blankline\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002",
+        "block_pagebreak": "\u6539\u30DA\u30FC\u30B8\u3057\u307E\u3059\u3002\n//pagebreak\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002\u6B63\u5F0F\u30B3\u30DE\u30F3\u30C9\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u3002PDF\u3084epub\u306E\u307F\u5BFE\u5FDC\u3067\u3059\u3002",
         "block_source": '\u30BD\u30FC\u30B9\u30B3\u30FC\u30C9\u306E\u5F15\u7528\u3092\u793A\u3057\u307E\u3059\u3002\n//source[hello.js]{\nconsole.log("Hello world!");\n//}\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002',
         "block_cmd": "\u30B3\u30DE\u30F3\u30C9\u30E9\u30A4\u30F3\u306E\u30AD\u30E3\u30D7\u30C1\u30E3\u3092\u793A\u3057\u307E\u3059\u3002\n//cmd{\n$ git clone git@github.com:vvakame/review.js.git\n//}\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002",
         "block_quote": "\u5F15\u7528\u3092\u793A\u3057\u307E\u3059\u3002\n//quote{\n\u795E\u306F\u8A00\u3063\u3066\u3044\u308B\u2026\u3053\u3053\u3067\u6B7B\u306C\u5B9A\u3081\u3067\u306F\u306A\u3044\u3068\u2026\n//}\n\u3068\u3044\u3046\u5F62\u5F0F\u3067\u66F8\u304D\u307E\u3059\u3002",
