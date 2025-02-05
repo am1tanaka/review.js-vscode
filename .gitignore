@@ -27,3 +27,5 @@ tscommand.tmp.txt
 .baseDir.ts
 
 !test/scriptHelpers/**/*.js
+
+releases/
